@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:SG;src:url(fonts/space-grotesk-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:SG;src:url(fonts/space-grotesk-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:PM;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2);font-weight:500}
+:root{--void:#05060A;--navy:#0B1426;--chalk:#EDE6D6;--gold:#F5B942;--cyan:#3FE0FF;--ember:#FF4A2E;--violet:#7B5CFF}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--void)}
+#root{position:relative;width:1080px;height:1920px;background:radial-gradient(ellipse at 50% 45%,#0B1426 0%,#05060A 70%);font-family:SG,sans-serif;color:var(--chalk)}
+.star{position:absolute;border-radius:50%;background:#cfe8ff}
+#hole{position:absolute;left:540px;top:850px;width:0;height:0}
+.half{position:absolute;left:0;top:0;width:0;height:0}
+.ring{position:absolute;border:2.5px solid var(--cyan);border-radius:50%;box-shadow:0 0 14px rgba(63,224,255,.55),inset 0 0 10px rgba(63,224,255,.25)}
+.spoke{position:absolute;width:2px;background:linear-gradient(var(--cyan),rgba(63,224,255,.1));opacity:.35}
+#core{position:absolute;left:-60px;top:-60px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#fff 0%,var(--ember) 30%,rgba(255,74,46,0) 70%);opacity:0}
+#flash{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,74,46,.55),rgba(255,74,46,0) 60%);opacity:0}
+#probe{position:absolute;left:-14px;top:-14px;width:28px;height:28px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#bff4ff 40%,rgba(63,224,255,0) 75%);box-shadow:0 0 30px 10px rgba(63,224,255,.6)}
+#badge{position:absolute;top:150px;left:50%;transform:translateX(-50%);font-family:PM;font-size:30px;letter-spacing:.18em;color:var(--cyan);border:2px solid rgba(63,224,255,.6);padding:12px 26px;border-radius:40px;background:rgba(5,6,10,.6)}
+#title{position:absolute;top:240px;width:100%;text-align:center;font-weight:700;font-size:96px;letter-spacing:-.02em;line-height:1}
+#title span{color:var(--ember)}
+#panel{position:absolute;left:90px;right:90px;top:1330px}
+.lbl{font-family:PM;font-size:30px;letter-spacing:.14em;color:rgba(237,230,214,.7)}
+#l1{font-weight:700;font-size:56px;line-height:1.1;margin-top:14px}
+#l2{margin-top:40px}
+#l3{font-weight:700;font-size:72px;color:var(--violet);margin-top:8px;text-shadow:0 0 30px rgba(123,92,255,.6)}
+#bar{position:relative;margin-top:40px;height:22px}
+#axis{position:absolute;left:50%;top:-18px;width:3px;height:58px;background:var(--chalk)}
+#track{position:absolute;inset:0;border-radius:11px;background:rgba(237,230,214,.12)}
+#fill{position:absolute;right:50%;top:0;height:22px;width:450px;border-radius:11px 0 0 11px;background:linear-gradient(90deg,var(--violet),#a48cff);transform-origin:100% 50%;box-shadow:0 0 24px rgba(123,92,255,.8)}
+#zero{position:absolute;left:50%;top:44px;transform:translateX(-50%);font-family:PM;font-size:26px;color:var(--chalk)}
+#neg{position:absolute;left:0;top:44px;font-family:PM;font-size:26px;color:var(--violet)}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="7" data-width="1080" data-height="1920">
+  <div id="stars"></div>
+  <div id="hole"><div class="half" id="top"></div><div class="half" id="bot"></div><div id="core"></div><div id="probe"></div></div>
+  <div id="flash"></div>
+  <div id="badge">● REAL PHYSICS</div>
+  <div id="title">WHY IT <span>SLAMS SHUT</span></div>
+  <div id="panel">
+    <div class="lbl" id="l0">EINSTEIN–ROSEN BRIDGE</div>
+    <div id="l1">Gravity pinches the throat closed faster than light can cross it.</div>
+    <div class="lbl" id="l2">TO HOLD IT OPEN YOU NEED</div>
+    <div id="l3">NEGATIVE ENERGY</div>
+    <div id="bar"><div id="track"></div><div id="fill"></div><div id="axis"></div><div id="zero">0</div><div id="neg">− energy</div></div>
+  </div>
+</div>
+<script>
+// deterministic stars
+let s=7;const r=()=>{s=(s*16807)%2147483647;return s/2147483647};
+const st=document.getElementById('stars');
+for(let i=0;i<140;i++){const d=document.createElement('div');d.className='star';const z=r()*2.6+0.8;Object.assign(d.style,{left:r()*1080+'px',top:r()*1920+'px',width:z+'px',height:z+'px',opacity:(0.25+r()*0.6).toFixed(2)});st.appendChild(d)}
+// funnel rings
+const N=13, rings={top:[],bot:[]};
+for(const side of ['top','bot']){
+  const host=document.getElementById(side);
+  for(let i=0;i<N;i++){
+    const t=i/(N-1);                 // 0 = throat, 1 = mouth
+    const y=Math.pow(t,0.75)*360;    // vertical offset
+    const w=70+880*t*t;              // width grows quadratically
+    const h=w*0.2;
+    const e=document.createElement('div');e.className='ring';
+    Object.assign(e.style,{width:w+'px',height:h+'px',left:(-w/2)+'px',top:((side==='top'?-y:y)-h/2)+'px',opacity:(1-0.45*t).toFixed(2)});
+    e.dataset.t=t;host.appendChild(e);rings[side].push(e);
+  }
+}
+const tl=gsap.timeline({paused:true});
+tl.from('#stars',{opacity:0,duration:.6},0)
+  .from('#badge',{opacity:0,y:-20,duration:.5},0.1)
+  .from('#title',{opacity:0,y:30,duration:.6},0.2);
+['top','bot'].forEach((side,k)=>{
+  rings[side].slice().reverse().forEach((e,j)=>tl.from(e,{opacity:0,scaleX:.6,scaleY:.6,duration:.45},0.15+j*0.04));
+});
+tl.fromTo('#probe',{x:-400,y:-420,opacity:0},{x:-170,y:-200,opacity:1,duration:.9,ease:'power1.in'},0.9)
+  .to('#probe',{x:-20,y:-30,scale:.6,duration:.7,ease:'power2.in'},1.8);
+// pinch: inner rings collapse, center first
+['top','bot'].forEach(side=>{
+  rings[side].forEach((e,i)=>{ if(i<6){ tl.to(e,{scaleX:0.02,scaleY:0.02,opacity:0,duration:.55,ease:'power3.in'},2.2+i*0.06);} });
+});
+tl.to('#probe',{opacity:0,scale:0,duration:.25},2.5)
+  .to('#core',{opacity:1,scale:1.6,duration:.15},2.65)
+  .to('#core',{opacity:0,scale:.2,duration:.6},2.8)
+  .fromTo('#flash',{opacity:0},{opacity:1,duration:.12},2.65)
+  .to('#flash',{opacity:0,duration:.8},2.8)
+  .to('#top',{y:-35,duration:1.1,ease:'power2.out'},2.75)
+  .to('#bot',{y:35,duration:1.1,ease:'power2.out'},2.75)
+  .from('#l0',{opacity:0,x:-30,duration:.4},1.0)
+  .from('#l1',{opacity:0,y:20,duration:.5},1.2)
+  .from('#l2',{opacity:0,x:-30,duration:.4},3.6)
+  .from('#l3',{opacity:0,scale:.9,duration:.5},3.8)
+  .from('#bar',{opacity:0,duration:.4},4.2)
+  .fromTo('#fill',{scaleX:0},{scaleX:1,duration:1.4,ease:'power2.inOut'},4.5);
+window.__timelines=window.__timelines||{};window.__timelines['main']=tl;tl.seek(0);
+</script>
+</body>
+</html>
