@@ -1,7 +1,7 @@
 # JBGBotology Production Status
 
 Single source of truth for the daily briefings. Update this file whenever work is created, reviewed, scheduled, or posted.
-Times are America/Chicago. Last updated: 2026-10-12 19:10 CT.
+Times are America/Chicago. Last updated: 2026-10-12 19:35 CT.
 
 ## Calendar (posts at 12:00 PM CT on Facebook, Instagram, TikTok, YouTube)
 | Date | Item | Status |
@@ -34,7 +34,7 @@ Times are America/Chicago. Last updated: 2026-10-12 19:10 CT.
 - (none right now)
 
 ## Recently done
-- 2026-10-12: Ep 1 scheduled (Oct 25); 6 Lola promos scheduled (Oct 19-24); Substratum Theory v3.0 PR #2 merged; Stargate Series Hub pinned; model cost test (Veo 3.1 Lite chosen for regular shots).
+- 2026-10-12: Ep 1 scheduled (Oct 25); 6 Lola promos scheduled (Oct 19-24); Substratum Theory v3.0 PR #2 merged; author name changed to Juan Hinojosa (PR #3 merged); Stargate Series Hub pinned; model cost test (Veo 3.1 Lite chosen for regular shots).
 
 ## Other workstreams
 - Substratum Theory promo blitz: proposed for late Nov leading into Ep 7 (Dec 6). Awaiting Johnny's go-ahead.
