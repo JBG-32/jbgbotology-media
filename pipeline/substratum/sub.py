@@ -1,16 +1,16 @@
 import json, subprocess, os, sys
 from PIL import Image, ImageDraw, ImageFont
 W,H,FPS=1080,1920,30
-os.chdir('/tmp/claude-0/subpromo'); os.makedirs('build',exist_ok=True); os.makedirs('out',exist_ok=True)
-FD='/tmp/claude-0/ep1/fonts/fontsource-space-grotesk-5.3.0/files/'
-FM='/tmp/claude-0/ep1/fonts/fontsource-ibm-plex-mono-5.3.0/files/'
+WORK=os.environ.get('WORK','/tmp/claude-0/subpromo'); REPO=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.chdir(WORK); os.makedirs('build',exist_ok=True); os.makedirs('out',exist_ok=True)
+FD=FM=os.path.join(REPO,'fonts')+'/'
 FB=FD+'space-grotesk-latin-700-normal.woff'; FMD=FD+'space-grotesk-latin-500-normal.woff'; FMO=FM+'ibm-plex-mono-latin-500-normal.woff'
 CHALK=(237,230,214); GOLD=(245,185,66); CYAN=(63,224,255); EMBER=(255,74,46); VIOLET=(155,132,255); INK=(5,6,10)
 f=lambda p,s: ImageFont.truetype(p,s)
 F_PILL=f(FMO,30); F_BRAND=f(FMO,27); F_STRIP=f(FMO,26); F_CAP=f(FB,70); F_E1=f(FB,112); F_E2=f(FMO,36); F_E3=f(FMD,44)
 F_LBL=f(FMO,34); F_LBLB=f(FB,46); F_D=f(FB,64); F_STAMP=f(FB,120)
 WORDS=json.load(open('words.json'))
-SFX='/tmp/claude-0/lola/sfx/'
+SFX=os.path.join(REPO,'promos','sfx')+'/'
 EQ_OLD=Image.open('eq_old.png'); EQ_NEW=Image.open('eq_new.png'); SKY=Image.open('skymap.png')
 def run(c): subprocess.run(c,check=True)
 def dur(p): return float(subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',p],capture_output=True,text=True).stdout)
