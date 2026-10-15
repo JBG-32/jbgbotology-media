@@ -59,3 +59,7 @@ Live dashboard: JBGBotology Mission Control, https://claude.ai/artifact/4SxNdczq
 
 ## Issues / risks
 - None open. Instagram/TikTok/YouTube may require first-post confirmations in Metricool before Oct 19.
+
+## Oct 15
+- Ep 1 Spanish (neutral LatAm, Lola TTS) built and scheduled for Sun Oct 25, 6 PM CT on all 4 platforms (Metricool id 396912450). Cost: ~1,630 credits.
+- Lola Avatar node is live on promo flow (node_d69213a9-fff3-4063-b420-1c078db4df99). Wire it into image-gen for human-Lola shots. Test passed: 433 credits.
