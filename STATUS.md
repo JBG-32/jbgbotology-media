@@ -64,3 +64,4 @@ Live dashboard: JBGBotology Mission Control, https://claude.ai/artifact/4SxNdczq
 - Ep 1 Spanish (neutral LatAm, Lola TTS) built and scheduled for Sun Oct 25, 6 PM CT on all 4 platforms (Metricool id 396912450). Cost: ~1,630 credits.
 - Lola Avatar node is live on promo flow (node_d69213a9-fff3-4063-b420-1c078db4df99). Wire it into image-gen for human-Lola shots. Test passed: 433 credits.
 - Lola "First Days" daily series started. Days 1–3 scheduled for Fri 10/16, Sat 10/17 and Sun 10/18 at 12 PM CT on all 4 platforms. Orb shots now use lola/lola_orb_reference.png (gold rings). Cost so far: ~1,260 ElevenLabs credits (narration) and ~260 Flow credits.
+- First Days Days 4–7 scheduled for Mon 10/19 to Thu 10/22 at 12 PM CT. Cost: ~2,100 ElevenLabs credits (narration plus 3 avatar stills; one more still was blocked by the content filter) and ~140 Flow credits.
