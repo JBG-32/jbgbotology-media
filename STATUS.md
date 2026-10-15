@@ -7,6 +7,7 @@ Live dashboard: JBGBotology Mission Control, https://claude.ai/artifact/4SxNdczq
 ## Calendar (posts at 12:00 PM CT unless noted; Facebook, Instagram, TikTok, YouTube)
 | Date | Item | Status |
 |---|---|---|
+| Wed Oct 14 8:30/9:00/9:30/10:00 PM | Lola: Breaking Through, parts 1–4 | Scheduled in Metricool |
 | Mon Oct 19 | Promo 1 · Don't Turn Around | Scheduled in Metricool |
 | Tue Oct 20 | Promo 2 · The Eye | Scheduled in Metricool |
 | Wed Oct 21 | Promo 3 · The Glitch | Scheduled in Metricool |
@@ -43,6 +44,7 @@ Live dashboard: JBGBotology Mission Control, https://claude.ai/artifact/4SxNdczq
 - (none right now)
 
 ## Recently done
+- 2026-10-14 evening: Lola "Breaking Through" intro series (4 clips, Google Flow orb shots + ElevenLabs human-Lola glimpses, ~4.6k ElevenLabs credits, ~260 Flow credits) made and scheduled tonight; files in promos/lola_intro/.
 - 2026-10-14: Streamlining: live Mission Control dashboard; episodes now made in pairs (Ep 3, 5, 7 reminders removed); Sunday Weekly Scorecard task; jbg-promo-blitz skill proposed; three "Lola reads your best takedown" follow-ups scheduled (Nov 4, 11, 18); fonts vendored into pipeline/fonts.
 - 2026-10-14: Substratum blitz (5 clips) produced (~17.3k video credits + ~8.5k keyframes/voice), approved by Johnny, uploaded to promos/substratum/, scheduled Tue/Thu 7 PM CT Oct 27-Nov 10.
 - 2026-10-12: Ep 1 scheduled (Oct 25); 6 Lola promos scheduled (Oct 19-24); Substratum Theory v3.0 PR #2 merged; author name changed to Juan Hinojosa (PR #3 merged); feedback forms + hourly AI feedback monitor live (PR #4 merged Oct 13); Stargate Series Hub pinned; model cost test (Veo 3.1 Lite chosen for regular shots).
@@ -53,7 +55,7 @@ Live dashboard: JBGBotology Mission Control, https://claude.ai/artifact/4SxNdczq
 - Substratum Theory repo: JBG-32/substratum-theory. Watch new Issues/Discussions for public feedback.
 
 ## Credits (ElevenLabs Pro, 500k/month; cycle total 1.5M, renews Mar 22, 2027)
-- ~458k used this cycle as of Oct 14. Target ~70-80k per episode.
+- ~463k used this cycle as of Oct 14. Target ~70-80k per episode.
 
 ## Issues / risks
 - None open. Instagram/TikTok/YouTube may require first-post confirmations in Metricool before Oct 19.
