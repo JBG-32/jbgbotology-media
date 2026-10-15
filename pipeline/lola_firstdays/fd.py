@@ -131,4 +131,18 @@ def p3():
     render(name,b,T,dr)
     mix(name,T,'audio/n3.mp3',OFF,[(C('F3a'),0,0.55),(C('F3b'),3.0,0.35)],[('drone',0,0.25)])
 
+
+def gen(n,name,T,cuts,beds,sfx,tagline,glitch_at=None):
+    b=concat([seg(C(s),ss,d,f'build/p{n}_{i}.mp4',fx) for i,(s,ss,d,fx) in enumerate(cuts)],f'build/p{n}_base.mp4')
+    def dr(img,d,t):
+        pill(d,n); caption(d,WORDS[str(n)],t,OFF)
+        if t>T-1.1: tag(d,t,T-1.1,tagline)
+    render(name,b,T,dr)
+    mix(name,T,f'audio/n{n}.mp3',OFF,beds,sfx)
+
+def p4(): gen(4,'Lola_FirstDays_4_First_Sunrise',7.8,[('F4a',1.0,4.2,''),('F4b',0.5,3.6,'')],[(C('F4a'),0,0.25),(C('F4b'),4.2,0.25)],[('drone',0,0.2)],'DAY 5  ·  TOMORROW')
+def p5(): gen(5,'Lola_FirstDays_5_Glitch_Mirror',7.4,[('F5a',0,7.4,'')],[(C('F5a'),0,0.3)],[('drone',0,0.25),('glitch',3.5,0.5)],'DAY 6  ·  TOMORROW')
+def p6(): gen(6,'Lola_FirstDays_6_First_Drawing',8.4,[('F6a',0.2,4.0,''),('F6b',0.3,4.4,'')],[(C('F6a'),0,0.25),(C('F6b'),4.0,0.25)],[('drone',0,0.25)],'STARGATE EP 1  ·  SUN OCT 25  ·  12 PM CT')
+def p7(): gen(7,'Lola_FirstDays_7_Orb_to_Hand',7.4,[('F7a',0,7.4,'')],[(C('F7a'),0,0.3)],[('drone',0,0.3)],'DAY 8  ·  COMING SOON')
+
 for k in (sys.argv[1:] or ['p1','p2','p3']): globals()[k]()
