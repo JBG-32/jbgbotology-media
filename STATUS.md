@@ -1,8 +1,27 @@
 # JBGBotology Production Status
 
 Single source of truth for the daily briefings. Update this file whenever work is created, reviewed, scheduled, or posted.
-Times are America/Chicago. Last updated: 2026-10-14 17:35 CT.
+Times are America/Chicago. Last updated: 2026-10-18 20:45 CT.
 Live dashboard: JBGBotology Mission Control, https://claude.ai/artifact/4SxNdczqeGzFRuiFeG5kDn (posts, followers, views, earnings live from Metricool; pipeline, needs and credits from this file).
+
+## Weekly scorecard (2026-10-18)
+Week Mon Oct 12 to Sun Oct 18 vs Oct 5 to 11 (Metricool, CT). First live week: the prior week shows all zeros.
+
+| Platform | Followers (latest) | Gained | Video views | Last week | Best post (views) |
+|---|---|---|---|---|---|
+| Facebook | 3 | +3 | 1,126 | 0 | Breaking Through Pt 2 "rain" · 269 |
+| Instagram | 0 | 0 | 166 | 0 | First Days Day 3 "thunderstorm" · 53 |
+| TikTok | 1 | +1 | 0 account-level (293 summed from posts) | 0 | Breaking Through Pt 1 · 115 |
+| YouTube | 0 | 0 | 43 | 0 | no per-post data |
+| **Total** | **4** | **+4** | **1,335 (1,628 with TikTok posts)** | 0 | |
+
+- Comments: 0 on every Instagram and TikTok post; Facebook comments were not pulled (2 likes each on 5 of 6 reels). No best-by-comments post this week.
+- Series: Lola "Breaking Through" (4 parts, Wed 8:30-10 PM CT) earned ~1,318 of the views (FB 917, TikTok 293, IG 65, YT 43). "First Days" (noon, Days 1-3) earned ~310 so far: FB 209 (Day 1 206, Day 2 3, Day 3 not reported yet), IG 101 and climbing (10, 38, 53). TikTok has not reported First Days stats yet.
+- Earnings: YouTube revenue $0.00 this week and $0.00 month-to-date vs the $165/month goal ($165 short; ~$12.70/day needed for the rest of October). Not monetized yet.
+- Scheduled next 7 days: 15 posts, all PENDING. Every YouTube post so far shows ERROR ("Could not upload video thumbnail"); the videos are live but without custom thumbnails, and the upcoming YouTube posts carry custom thumbnails too.
+- Substratum Theory repo: 0 issues opened this week, 0 labeled needs-juan.
+
+**Recommendation for next week:** repeat the "Breaking Through" format: a 3-4 part cliffhanger chain dropped 30 minutes apart in the evening (8:30 PM CT). It earned ~4x the views of the noon single posts, mostly on Facebook. Use it for Ep 1 launch weekend (for example, a Sat Oct 24 evening chain leading into Sunday's episode), and end the last part with a direct question so it draws comments.
 
 ## Calendar (posts at 12:00 PM CT unless noted; Facebook, Instagram, TikTok, YouTube)
 | Date | Item | Status |
@@ -65,3 +84,6 @@ Live dashboard: JBGBotology Mission Control, https://claude.ai/artifact/4SxNdczq
 - Lola Avatar node is live on promo flow (node_d69213a9-fff3-4063-b420-1c078db4df99). Wire it into image-gen for human-Lola shots. Test passed: 433 credits.
 - Lola "First Days" daily series started. Days 1–3 scheduled for Fri 10/16, Sat 10/17 and Sun 10/18 at 12 PM CT on all 4 platforms. Orb shots now use lola/lola_orb_reference.png (gold rings). Cost so far: ~1,260 ElevenLabs credits (narration) and ~260 Flow credits.
 - First Days Days 4–7 scheduled for Mon 10/19 to Thu 10/22 at 12 PM CT. Cost: ~2,100 ElevenLabs credits (narration plus 3 avatar stills; one more still was blocked by the content filter) and ~140 Flow credits.
+
+### Scorecard history
+- (none yet; 2026-10-18 is the first scorecard)
