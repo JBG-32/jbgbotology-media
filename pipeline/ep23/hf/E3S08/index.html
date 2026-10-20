@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:SG;src:url(fonts/space-grotesk-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:SG;src:url(fonts/space-grotesk-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:PM;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2);font-weight:500}
+:root{--void:#05060A;--navy:#0B1426;--chalk:#EDE6D6;--gold:#F5B942;--cyan:#3FE0FF;--ember:#FF4A2E;--violet:#7B5CFF}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--void)}
+#root{position:relative;width:1080px;height:1920px;background:radial-gradient(ellipse at 50% 45%,#0B1426 0%,#05060A 70%);font-family:SG,sans-serif;color:var(--chalk)}
+.star{position:absolute;border-radius:50%;background:#cfe8ff}
+#badge{position:absolute;top:150px;left:50%;transform:translateX(-50%);font-family:PM;font-size:30px;letter-spacing:.18em;color:var(--cyan);border:2px solid rgba(63,224,255,.6);padding:12px 26px;border-radius:40px;background:rgba(5,6,10,.6);white-space:nowrap}
+#title{position:absolute;top:240px;width:100%;text-align:center;font-weight:700;font-size:96px;letter-spacing:-.02em;line-height:1}
+#title span{color:var(--ember)}
+.lbl{font-family:PM;font-size:30px;letter-spacing:.14em;color:rgba(237,230,214,.75)}
+.big{font-weight:700;font-size:56px;line-height:1.1}
+svg{position:absolute;left:0;top:0}
+#plA,#plB{position:absolute;top:560px;width:26px;height:700px;border-radius:6px;background:linear-gradient(90deg,#b8862c,var(--gold),#b8862c);box-shadow:0 0 26px rgba(245,185,66,.55)}
+#plA{left:400px}#plB{left:654px}
+#lo,#li{position:absolute;font-family:PM;font-size:28px;letter-spacing:.12em;text-align:center}
+#lo{top:1290px;left:0;width:390px;color:var(--cyan)}
+#li{top:1290px;left:426px;width:228px;color:var(--gold)}
+#lo2{position:absolute;top:1290px;right:0;width:400px;text-align:center;font-family:PM;font-size:28px;letter-spacing:.12em;color:var(--cyan)}
+#panel{position:absolute;left:90px;right:90px;top:1440px}
+#p2{margin-top:14px}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="5.7" data-width="1080" data-height="1920">
+  <div id="stars"></div>
+  <div id="badge">&#9679; REAL PHYSICS</div>
+  <div id="title">ONLY SOME <span>WAVES FIT</span></div>
+  <svg width="1080" height="1920" id="sv"></svg>
+  <div id="plA"></div><div id="plB"></div>
+  <div id="lo">ALL WAVES</div><div id="li">ONLY<br>FITTING</div><div id="lo2">ALL WAVES</div>
+  <div id="panel"><div class="lbl" id="p1">TWO METAL PLATES, A HAIR APART</div><div class="big" id="p2">Fewer waves inside means less energy than empty space.</div></div>
+</div>
+<script>
+let s=7;const r=()=>{s=(s*16807)%2147483647;return s/2147483647};
+const st=document.getElementById('stars');
+for(let i=0;i<140;i++){const d=document.createElement('div');d.className='star';const z=r()*2.6+0.8;Object.assign(d.style,{left:r()*1080+'px',top:r()*1920+'px',width:z+'px',height:z+'px',opacity:(0.25+r()*0.6).toFixed(2)});st.appendChild(d)}
+const tl=gsap.timeline({paused:true});
+tl.from('#stars',{opacity:0,duration:.5},0).from('#badge',{opacity:0,y:-20,duration:.4},0.05).from('#title',{opacity:0,y:30,duration:.5},0.15);
+
+const NS='http://www.w3.org/2000/svg', sv=document.getElementById('sv');
+const outside=[], inside=[];
+const cols=['#3FE0FF','#7fd8ff','#5aa8ff','#3FE0FF','#9be8ff','#4fc0ff','#3FE0FF','#7fd8ff','#5aa8ff','#9be8ff'];
+function mk(c,w,o){const p=document.createElementNS(NS,'path');p.setAttribute('fill','none');p.setAttribute('stroke',c);p.setAttribute('stroke-width',w);p.setAttribute('opacity',o);p.setAttribute('stroke-linecap','round');sv.appendChild(p);return p}
+// outside: many wavelengths, both sides
+for(let i=0;i<10;i++){const k=0.012+i*0.0075, y=600+i*64;
+  outside.push({p:mk(cols[i],3,.75),x0:40,x1:385,y,k,a:22,sp:2+i*.35});
+  outside.push({p:mk(cols[i],3,.75),x0:695,x1:1040,y,k,a:22,sp:2+i*.35});}
+// inside: standing waves that fit (n = 1..4) between x=426..654
+for(let n=1;n<=4;n++){inside.push({p:mk('#F5B942',3.5,.9),y:640+(n-1)*160,n});}
+const ph={t:0};
+function draw(){const t=ph.t;
+  outside.forEach(o=>{let d='';for(let x=o.x0;x<=o.x1;x+=6){const y=o.y+o.a*Math.sin(o.k*x*6-t*o.sp);d+=(x===o.x0?'M':'L')+x+' '+y.toFixed(1)}o.p.setAttribute('d',d)});
+  inside.forEach(o=>{let d='';const L=228;for(let x=0;x<=L;x+=4){const y=o.y+40*Math.sin(o.n*Math.PI*x/L)*Math.cos(t*1.6*o.n);d+=(x===0?'M':'L')+(426+x)+' '+y.toFixed(1)}o.p.setAttribute('d',d)});}
+draw();
+tl.to(ph,{t:12,duration:5.7,ease:'none',onUpdate:draw},0);
+tl.from('#plA',{opacity:0,y:-60,duration:.5},0.3).from('#plB',{opacity:0,y:-60,duration:.5},0.4)
+  .from(outside.map(o=>o.p),{opacity:0,duration:.6,stagger:.02},0.5)
+  .from('#lo,#lo2',{opacity:0,duration:.4},1.0)
+  .from(inside.map(o=>o.p),{opacity:0,duration:.5,stagger:.15},1.6)
+  .from('#li',{opacity:0,duration:.4},2.0)
+  .from('#p1',{opacity:0,x:-30,duration:.4},2.6).from('#p2',{opacity:0,y:20,duration:.5},2.9);
+
+window.__timelines=window.__timelines||{};window.__timelines['main']=tl;tl.seek(0);
+</script>
+</body>
+</html>

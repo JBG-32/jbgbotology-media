@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:SG;src:url(fonts/space-grotesk-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:SG;src:url(fonts/space-grotesk-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:PM;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2);font-weight:500}
+:root{--void:#05060A;--navy:#0B1426;--chalk:#EDE6D6;--gold:#F5B942;--cyan:#3FE0FF;--ember:#FF4A2E;--violet:#7B5CFF}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--void)}
+#root{position:relative;width:1080px;height:1920px;background:radial-gradient(ellipse at 50% 45%,#0B1426 0%,#05060A 70%);font-family:SG,sans-serif;color:var(--chalk)}
+.star{position:absolute;border-radius:50%;background:#cfe8ff}
+#badge{position:absolute;top:150px;left:50%;transform:translateX(-50%);font-family:PM;font-size:30px;letter-spacing:.18em;color:var(--cyan);border:2px solid rgba(63,224,255,.6);padding:12px 26px;border-radius:40px;background:rgba(5,6,10,.6);white-space:nowrap}
+#title{position:absolute;top:240px;width:100%;text-align:center;font-weight:700;font-size:96px;letter-spacing:-.02em;line-height:1}
+#title span{color:var(--ember)}
+.lbl{font-family:PM;font-size:30px;letter-spacing:.14em;color:rgba(237,230,214,.75)}
+.big{font-weight:700;font-size:56px;line-height:1.1}
+svg{position:absolute;left:0;top:0}
+#c{position:absolute;left:540px;top:900px;width:0;height:0}
+#throat{position:absolute;left:-150px;top:-150px;width:300px;height:300px;border-radius:50%;border:3px solid var(--cyan);box-shadow:0 0 30px rgba(63,224,255,.6),inset 0 0 30px rgba(63,224,255,.3)}
+.arr{position:absolute;left:0;top:0;height:0;transform-origin:0 0}
+.arr i{position:absolute;top:-5px;height:10px;border-radius:5px}
+.arr b{position:absolute;top:-17px;width:0;height:0;border-top:17px solid transparent;border-bottom:17px solid transparent}
+.in i{left:250px;width:150px;background:var(--ember);box-shadow:0 0 16px rgba(255,74,46,.7)}
+.in b{left:222px;border-right:30px solid var(--ember)}
+.out i{left:170px;width:150px;background:var(--violet);box-shadow:0 0 16px rgba(123,92,255,.8)}
+.out b{left:318px;border-left:30px solid var(--violet)}
+#leg{position:absolute;left:90px;right:90px;top:1370px}
+.row{display:flex;align-items:center;gap:26px;margin-bottom:34px}
+.sw{width:70px;height:12px;border-radius:6px}
+.row .big{font-size:52px}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="2.8" data-width="1080" data-height="1920">
+  <div id="stars"></div>
+  <div id="badge">&#9679; REAL PHYSICS</div>
+  <div id="title">PULL <span>vs</span> PUSH</div>
+  <div id="c"><div id="throat"></div><div class="arr in" style="transform:rotate(0.393rad)"><i></i><b></b></div><div class="arr in" style="transform:rotate(1.963rad)"><i></i><b></b></div><div class="arr in" style="transform:rotate(3.534rad)"><i></i><b></b></div><div class="arr in" style="transform:rotate(5.105rad)"><i></i><b></b></div><div class="arr out" style="transform:rotate(1.178rad)"><i></i><b></b></div><div class="arr out" style="transform:rotate(2.749rad)"><i></i><b></b></div><div class="arr out" style="transform:rotate(4.320rad)"><i></i><b></b></div><div class="arr out" style="transform:rotate(5.890rad)"><i></i><b></b></div></div>
+  <div id="leg">
+    <div class="row" id="r1"><div class="sw" style="background:var(--ember)"></div><div><div class="lbl">PULLS IT SHUT</div><div class="big">Gravity</div></div></div>
+    <div class="row" id="r2"><div class="sw" style="background:var(--violet)"></div><div><div class="lbl">PUSHES IT OPEN</div><div class="big" style="color:#a48cff">Negative energy</div></div></div>
+  </div>
+</div>
+<script>
+let s=7;const r=()=>{s=(s*16807)%2147483647;return s/2147483647};
+const st=document.getElementById('stars');
+for(let i=0;i<140;i++){const d=document.createElement('div');d.className='star';const z=r()*2.6+0.8;Object.assign(d.style,{left:r()*1080+'px',top:r()*1920+'px',width:z+'px',height:z+'px',opacity:(0.25+r()*0.6).toFixed(2)});st.appendChild(d)}
+const tl=gsap.timeline({paused:true});
+tl.from('#stars',{opacity:0,duration:.5},0).from('#badge',{opacity:0,y:-20,duration:.4},0.05).from('#title',{opacity:0,y:30,duration:.5},0.15);
+
+tl.from('#throat',{opacity:0,scale:.7,duration:.4},0.1)
+  .from('.in',{opacity:0,duration:.25,stagger:.05},0.35)
+  .from('.in i, .in b',{x:120,duration:.5,ease:'power2.out',stagger:.02},0.35)
+  .from('#r1',{opacity:0,x:-30,duration:.35},0.5)
+  .to('#throat',{scale:.8,duration:.4,ease:'power2.in'},0.6)
+  .from('.out',{opacity:0,duration:.25,stagger:.05},1.2)
+  .from('.out i, .out b',{x:-120,duration:.5,ease:'power2.out',stagger:.02},1.2)
+  .from('#r2',{opacity:0,x:-30,duration:.35},1.35)
+  .to('#throat',{scale:1.05,duration:.6,ease:'power2.out'},1.5);
+
+window.__timelines=window.__timelines||{};window.__timelines['main']=tl;tl.seek(0);
+</script>
+</body>
+</html>

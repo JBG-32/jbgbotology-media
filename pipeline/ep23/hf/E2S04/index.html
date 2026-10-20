@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:SG;src:url(fonts/space-grotesk-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:SG;src:url(fonts/space-grotesk-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:PM;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2);font-weight:500}
+:root{--void:#05060A;--navy:#0B1426;--chalk:#EDE6D6;--gold:#F5B942;--cyan:#3FE0FF;--ember:#FF4A2E;--violet:#7B5CFF}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--void)}
+#root{position:relative;width:1080px;height:1920px;background:radial-gradient(ellipse at 50% 45%,#0B1426 0%,#05060A 70%);font-family:SG,sans-serif;color:var(--chalk)}
+.star{position:absolute;border-radius:50%;background:#cfe8ff}
+#badge{position:absolute;top:150px;left:50%;transform:translateX(-50%);font-family:PM;font-size:30px;letter-spacing:.18em;color:var(--cyan);border:2px solid rgba(63,224,255,.6);padding:12px 26px;border-radius:40px;background:rgba(5,6,10,.6);white-space:nowrap}
+#title{position:absolute;top:240px;width:100%;text-align:center;font-weight:700;font-size:96px;letter-spacing:-.02em;line-height:1}
+#title span{color:var(--ember)}
+.lbl{font-family:PM;font-size:30px;letter-spacing:.14em;color:rgba(237,230,214,.75)}
+.big{font-weight:700;font-size:56px;line-height:1.1}
+svg{position:absolute;left:0;top:0}
+#hole{position:absolute;left:540px;top:880px;width:0;height:0}
+.half{position:absolute;left:0;top:0;width:0;height:0}
+.ring{position:absolute;border:2.5px solid var(--cyan);border-radius:50%;box-shadow:0 0 14px rgba(63,224,255,.55),inset 0 0 10px rgba(63,224,255,.25)}
+#tag{position:absolute;left:640px;top:850px;display:flex;align-items:center;gap:18px}
+#tag .line{width:150px;height:3px;background:var(--gold);box-shadow:0 0 12px rgba(245,185,66,.7)}
+#tag .t{font-family:PM;font-size:44px;letter-spacing:.16em;color:var(--gold);text-shadow:0 0 18px rgba(245,185,66,.6)}
+#glow{position:absolute;left:-70px;top:-22px;width:140px;height:44px;border-radius:50%;background:radial-gradient(ellipse,rgba(245,185,66,.75),rgba(245,185,66,0) 70%);opacity:0}
+#mA,#mB{position:absolute;font-family:PM;font-size:28px;letter-spacing:.14em;color:rgba(63,224,255,.85);width:100%;text-align:center}
+#mA{top:440px}#mB{top:1300px}
+#panel{position:absolute;left:90px;right:90px;top:1420px}
+#p2{margin-top:14px}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="5.3" data-width="1080" data-height="1920">
+  <div id="stars"></div>
+  <div id="badge">&#9679; REAL PHYSICS</div>
+  <div id="title">THE <span>THROAT</span></div>
+  <div id="mA">MOUTH A</div>
+  <div id="hole"><div class="half" id="top"></div><div class="half" id="bot"></div><div id="glow"></div></div>
+  <div id="mB">MOUTH B</div>
+  <div id="tag"><div class="line"></div><div class="t">THROAT</div></div>
+  <div id="panel"><div class="lbl" id="p1">THE NARROWEST POINT</div><div class="big" id="p2">Where the two ends of the tunnel meet.</div></div>
+</div>
+<script>
+let s=7;const r=()=>{s=(s*16807)%2147483647;return s/2147483647};
+const st=document.getElementById('stars');
+for(let i=0;i<140;i++){const d=document.createElement('div');d.className='star';const z=r()*2.6+0.8;Object.assign(d.style,{left:r()*1080+'px',top:r()*1920+'px',width:z+'px',height:z+'px',opacity:(0.25+r()*0.6).toFixed(2)});st.appendChild(d)}
+const tl=gsap.timeline({paused:true});
+tl.from('#stars',{opacity:0,duration:.5},0).from('#badge',{opacity:0,y:-20,duration:.4},0.05).from('#title',{opacity:0,y:30,duration:.5},0.15);
+
+const N=13, rings={top:[],bot:[]};
+for(const side of ['top','bot']){
+  const host=document.getElementById(side);
+  for(let i=0;i<N;i++){
+    const t=i/(N-1), y=Math.pow(t,0.75)*360, w=70+880*t*t, h=w*0.2;
+    const e=document.createElement('div');e.className='ring';
+    Object.assign(e.style,{width:w+'px',height:h+'px',left:(-w/2)+'px',top:((side==='top'?-y:y)-h/2)+'px',opacity:(1-0.45*t).toFixed(2)});
+    host.appendChild(e);rings[side].push(e);
+  }
+}
+['top','bot'].forEach(side=>rings[side].slice().reverse().forEach((e,j)=>tl.from(e,{opacity:0,scaleX:.6,scaleY:.6,duration:.4},0.1+j*0.035)));
+
+tl.from('#mA',{opacity:0,duration:.4},0.5).from('#mB',{opacity:0,duration:.4},0.6)
+  .fromTo('#tag',{opacity:0,x:40},{opacity:1,x:0,duration:.5},1.1)
+  .fromTo('#glow',{opacity:0},{opacity:1,duration:.4},1.1)
+  .from('#p1',{opacity:0,x:-30,duration:.4},1.6).from('#p2',{opacity:0,y:20,duration:.5},1.8);
+// throat breathes tighter
+[0,1,2,3].forEach(i=>{['top','bot'].forEach(sd=>tl.to(rings[sd][i],{scaleX:.55,scaleY:.55,duration:.9,ease:'sine.inOut',yoyo:true,repeat:1},2.4+i*0.05));});
+tl.to('#glow',{scale:1.4,duration:.9,yoyo:true,repeat:1,ease:'sine.inOut'},2.4);
+
+window.__timelines=window.__timelines||{};window.__timelines['main']=tl;tl.seek(0);
+</script>
+</body>
+</html>

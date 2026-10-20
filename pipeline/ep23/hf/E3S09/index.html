@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:SG;src:url(fonts/space-grotesk-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:SG;src:url(fonts/space-grotesk-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:PM;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2);font-weight:500}
+:root{--void:#05060A;--navy:#0B1426;--chalk:#EDE6D6;--gold:#F5B942;--cyan:#3FE0FF;--ember:#FF4A2E;--violet:#7B5CFF}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--void)}
+#root{position:relative;width:1080px;height:1920px;background:radial-gradient(ellipse at 50% 45%,#0B1426 0%,#05060A 70%);font-family:SG,sans-serif;color:var(--chalk)}
+.star{position:absolute;border-radius:50%;background:#cfe8ff}
+#badge{position:absolute;top:150px;left:50%;transform:translateX(-50%);font-family:PM;font-size:30px;letter-spacing:.18em;color:var(--cyan);border:2px solid rgba(63,224,255,.6);padding:12px 26px;border-radius:40px;background:rgba(5,6,10,.6);white-space:nowrap}
+#title{position:absolute;top:240px;width:100%;text-align:center;font-weight:700;font-size:96px;letter-spacing:-.02em;line-height:1}
+#title span{color:var(--ember)}
+.lbl{font-family:PM;font-size:30px;letter-spacing:.14em;color:rgba(237,230,214,.75)}
+.big{font-weight:700;font-size:56px;line-height:1.1}
+svg{position:absolute;left:0;top:0}
+#meter{position:absolute;left:390px;top:520px;width:300px;height:860px}
+#tube{position:absolute;left:110px;top:0;width:80px;height:860px;border-radius:40px;border:3px solid rgba(237,230,214,.5);background:rgba(237,230,214,.06)}
+#zline{position:absolute;left:40px;top:430px;width:220px;height:4px;background:var(--chalk);box-shadow:0 0 12px rgba(237,230,214,.6)}
+#pos{position:absolute;left:116px;bottom:430px;width:68px;height:330px;border-radius:34px 34px 0 0;background:linear-gradient(var(--cyan),rgba(63,224,255,.3));transform-origin:50% 100%}
+#negf{position:absolute;left:116px;top:434px;width:68px;height:330px;border-radius:0 0 34px 34px;background:linear-gradient(#a48cff,var(--violet));box-shadow:0 0 30px rgba(123,92,255,.8);transform-origin:50% 0}
+.mk{position:absolute;font-family:PM;font-size:28px;letter-spacing:.1em;white-space:nowrap}
+#m0{left:280px;top:412px;color:var(--chalk)}
+#mE{right:280px;top:412px;color:var(--cyan);text-align:right}
+#mN{right:280px;top:700px;color:#a48cff;text-align:right}
+#neg{position:absolute;top:1460px;width:100%;text-align:center;font-weight:700;font-size:96px;color:var(--violet);text-shadow:0 0 34px rgba(123,92,255,.7)}
+#sub{position:absolute;top:1590px;width:100%;text-align:center}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="7.2" data-width="1080" data-height="1920">
+  <div id="stars"></div>
+  <div id="badge">&#9679; REAL PHYSICS</div>
+  <div id="title">BELOW <span>ZERO</span></div>
+  <div id="meter"><div id="tube"></div><div id="pos"></div><div id="negf"></div><div id="zline"></div>
+    <div class="mk" id="m0">0</div><div class="mk" id="mE">EMPTY SPACE</div><div class="mk" id="mN">BETWEEN<br>THE PLATES</div></div>
+  <div id="neg">NEGATIVE ENERGY</div>
+  <div class="lbl" id="sub">MEASURED IN THE LAB SINCE 1997</div>
+</div>
+<script>
+let s=7;const r=()=>{s=(s*16807)%2147483647;return s/2147483647};
+const st=document.getElementById('stars');
+for(let i=0;i<140;i++){const d=document.createElement('div');d.className='star';const z=r()*2.6+0.8;Object.assign(d.style,{left:r()*1080+'px',top:r()*1920+'px',width:z+'px',height:z+'px',opacity:(0.25+r()*0.6).toFixed(2)});st.appendChild(d)}
+const tl=gsap.timeline({paused:true});
+tl.from('#stars',{opacity:0,duration:.5},0).from('#badge',{opacity:0,y:-20,duration:.4},0.05).from('#title',{opacity:0,y:30,duration:.5},0.15);
+
+gsap.set('#pos',{scaleY:0});gsap.set('#negf',{scaleY:0});
+tl.from('#tube',{opacity:0,duration:.5},0.3).from('#zline',{scaleX:0,duration:.5},0.5)
+  .from('#m0',{opacity:0,duration:.3},0.8)
+  .to('#pos',{scaleY:.02,duration:.4},0.9)
+  .from('#mE',{opacity:0,x:30,duration:.4},1.0)
+  .to('#mE',{opacity:.55,duration:.3},2.4)
+  .to('#negf',{scaleY:1,duration:1.6,ease:'power2.inOut'},2.4)
+  .from('#mN',{opacity:0,x:30,duration:.4},3.0)
+  .from('#neg',{opacity:0,scale:.9,duration:.5},4.0)
+  .from('#sub',{opacity:0,y:15,duration:.4},4.6)
+  .to('#negf',{opacity:.75,duration:.5,yoyo:true,repeat:3,ease:'sine.inOut'},5.0);
+
+window.__timelines=window.__timelines||{};window.__timelines['main']=tl;tl.seek(0);
+</script>
+</body>
+</html>

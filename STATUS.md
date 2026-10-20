@@ -1,7 +1,7 @@
 # JBGBotology Production Status
 
 Single source of truth for the daily briefings. Update this file whenever work is created, reviewed, scheduled, or posted.
-Times are America/Chicago. Last updated: 2026-10-20 00:40 CT.
+Times are America/Chicago. Last updated: 2026-10-20 01:30 CT.
 Live dashboard: JBGBotology Mission Control, https://claude.ai/artifact/4SxNdczqeGzFRuiFeG5kDn (posts, followers, views, earnings live from Metricool; pipeline, needs and credits from this file).
 
 ## Weekly scorecard (2026-10-18)
@@ -36,11 +36,11 @@ Week Mon Oct 12 to Sun Oct 18 vs Oct 5 to 11 (Metricool, CT). First live week: t
 | Sun Oct 25 | Ep 1 · Einstein drew a Stargate in 1935 | Scheduled in Metricool |
 | Tue Oct 27 7 PM | Substratum S1 · Break it | Scheduled in Metricool |
 | Thu Oct 29 7 PM | Substratum S2 · Twelve dimensions | Scheduled in Metricool |
-| Sun Nov 1 | Ep 2 · Why every wormhole slams shut | Paired with Ep 3: production starts Mon Oct 19, one approval ~Thu Oct 22 |
+| Sun Nov 1 | Ep 2 · Why every wormhole slams shut | Cut ready, awaiting Johnny approval (with Ep 3) |
 | Tue Nov 3 7 PM | Substratum S3 · We deleted it | Scheduled in Metricool |
 | Thu Nov 5 7 PM | Substratum S4 · Cosmic ray test | Scheduled in Metricool |
 | Fri Nov 6 7 PM | Lola reads your best takedown #1 | Produced Wed Nov 4 if there is a substantive challenge; Johnny approves |
-| Sun Nov 8 | Ep 3 · Negative energy is real, and we've measured it | Paired with Ep 2 (see above) |
+| Sun Nov 8 | Ep 3 · Negative energy is real, and we've measured it | Cut ready, awaiting Johnny approval (with Ep 2) |
 | Tue Nov 10 7 PM | Substratum S5 · Antenna | Scheduled in Metricool |
 | Fri Nov 13 7 PM | Lola reads your best takedown #2 | Produced Wed Nov 11; Johnny approves |
 | Fri Nov 20 7 PM | Lola reads your best takedown #3 | Produced Wed Nov 18; Johnny approves; verdict on continuing |
@@ -57,11 +57,11 @@ Week Mon Oct 12 to Sun Oct 18 vs Oct 5 to 11 (Metricool, CT). First live week: t
 - Sun 8:37 PM: Weekly Scorecard task pulls Metricool numbers, writes the scorecard below, checks the 2x goal ($165/month)
 
 ## Needs Johnny
-- **Ep 2 + Ep 3 keyframe picks** (A or B for 28 shots on one contact sheet), hook resolution (720p recommended vs 1080p), and voiceover OK. Sent Oct 20; video starts as soon as picks come in, both cuts target Thu Oct 22.
+- **Approve Ep 2 + Ep 3 cuts** (one pass, by Thu Oct 22). Previews sent Oct 20.
 - (Johnny is adding the theory link to profile bios himself)
 
 ## In progress
-- Stargate Ep 2 + Ep 3 (paired): scripts done (ep02/script.md, ep03/script.md), Lola voiceovers done (2 takes each, ~85 s), word timings done, 56 keyframe options done in ElevenLabs flow VTjtu7IfFnuIuu7JTm4d (Stargate Ep 2 + Ep 3). Shot list: pipeline/ep23/shots.json. Waiting on Johnny's picks. Spent so far ~14.0k credits (voice ~5.4k, keyframes ~8.6k). Video estimate: ~117k with 720p hooks, ~154k with 1080p hooks.
+- Stargate Ep 2 + Ep 3 (paired): picks received, 720p hooks. All 19 video clips done (6 Seedance heroes, 13 Veo Lite), 4 HyperFrames graphics rendered free (pipeline/ep23/hf/), music (2 takes each), 5 SFX, AI disclosure tag ("I'm Lola. I'm an AI."). Assembly: pipeline/ep23/assemble.py. Cuts in review with Johnny. Spent ~141.4k for both (~70.7k per episode): voice ~5.4k, keyframes ~8.6k, video ~116.9k, music ~10.1k, SFX/tag/transcribe ~0.4k.
 
 ## Recently done
 - 2026-10-14 evening: Lola "Breaking Through" intro series (4 clips, Google Flow orb shots + ElevenLabs human-Lola glimpses, ~4.6k ElevenLabs credits, ~260 Flow credits) made and scheduled tonight; files in promos/lola_intro/.
@@ -75,7 +75,7 @@ Week Mon Oct 12 to Sun Oct 18 vs Oct 5 to 11 (Metricool, CT). First live week: t
 - Substratum Theory repo: JBG-32/substratum-theory. Watch new Issues/Discussions for public feedback.
 
 ## Credits (ElevenLabs Pro, 500k/month; cycle total 1.5M, renews Mar 22, 2027)
-- ~463k used this cycle as of Oct 14. Target ~70-80k per episode.
+- ~610k used this cycle as of Oct 20. Target ~70-80k per episode.
 
 ## Issues / risks
 - None open. Instagram/TikTok/YouTube may require first-post confirmations in Metricool before Oct 19.
