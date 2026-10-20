@@ -1,7 +1,7 @@
 # JBGBotology Production Status
 
 Single source of truth for the daily briefings. Update this file whenever work is created, reviewed, scheduled, or posted.
-Times are America/Chicago. Last updated: 2026-10-18 20:45 CT.
+Times are America/Chicago. Last updated: 2026-10-20 00:40 CT.
 Live dashboard: JBGBotology Mission Control, https://claude.ai/artifact/4SxNdczqeGzFRuiFeG5kDn (posts, followers, views, earnings live from Metricool; pipeline, needs and credits from this file).
 
 ## Weekly scorecard (2026-10-18)
@@ -57,10 +57,11 @@ Week Mon Oct 12 to Sun Oct 18 vs Oct 5 to 11 (Metricool, CT). First live week: t
 - Sun 8:37 PM: Weekly Scorecard task pulls Metricool numbers, writes the scorecard below, checks the 2x goal ($165/month)
 
 ## Needs Johnny
-- (none right now; Johnny is adding the theory link to profile bios himself)
+- **Ep 2 + Ep 3 keyframe picks** (A or B for 28 shots on one contact sheet), hook resolution (720p recommended vs 1080p), and voiceover OK. Sent Oct 20; video starts as soon as picks come in, both cuts target Thu Oct 22.
+- (Johnny is adding the theory link to profile bios himself)
 
 ## In progress
-- (none right now)
+- Stargate Ep 2 + Ep 3 (paired): scripts done (ep02/script.md, ep03/script.md), Lola voiceovers done (2 takes each, ~85 s), word timings done, 56 keyframe options done in ElevenLabs flow VTjtu7IfFnuIuu7JTm4d (Stargate Ep 2 + Ep 3). Shot list: pipeline/ep23/shots.json. Waiting on Johnny's picks. Spent so far ~14.0k credits (voice ~5.4k, keyframes ~8.6k). Video estimate: ~117k with 720p hooks, ~154k with 1080p hooks.
 
 ## Recently done
 - 2026-10-14 evening: Lola "Breaking Through" intro series (4 clips, Google Flow orb shots + ElevenLabs human-Lola glimpses, ~4.6k ElevenLabs credits, ~260 Flow credits) made and scheduled tonight; files in promos/lola_intro/.

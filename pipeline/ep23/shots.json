@@ -1,0 +1,40 @@
+{
+"style": "Vertical 9:16 cinematic frame, photoreal, rich film grain, deep shadows. Palette: void black, deep navy, chalk white, eclipse gold, event cyan, exotic violet accents. No text, no letters, no logos, no human faces.",
+"ep2": [
+ {"id":"E2S01","t":[0.0,5.2],"type":"hero","ref":"gate","what":"Hook: the Eclipse Gate (ring of 24 floating obsidian segments with a gold rim around a lensing sphere of stars) violently collapses inward, the segments crashing to the center"},
+ {"id":"E2S02","t":[5.2,9.4],"type":"still","ref":"orb","what":"Lola's orb (glowing blue sphere, white waveform across its center, three gold orbital rings) floats in a dark observatory beside an old chalkboard covered in curved spacetime sketches"},
+ {"id":"E2S03","t":[9.4,13.3],"type":"veo","what":"Callback to Ep 1: a glowing cyan wireframe of an Einstein-Rosen bridge (two funnels joined at a narrow neck) drawn over a sepia chalkboard, chalk dust in the light"},
+ {"id":"E2S04","t":[13.3,18.6],"type":"hyperframes","what":"Diagram: tunnel with a narrow middle, label THROAT"},
+ {"id":"E2S05","t":[18.6,24.0],"type":"still","what":"1962 physics office at night: a large chalkboard with spacetime diagrams, a desk lamp, slide rule, stacked papers and a typewriter, sepia tones, no people"},
+ {"id":"E2S06","t":[24.0,29.6],"type":"hero","what":"Inside view of a wormhole throat made of rippling spacetime: it opens wide, then pinches shut violently while a beam of light racing through is cut off before it reaches the far side"},
+ {"id":"E2S07","t":[29.6,32.8],"type":"veo","what":"A small silver space probe drifts into a narrowing tunnel of warped spacetime and is squeezed and crushed as the walls close"},
+ {"id":"E2S08","t":[32.8,41.4],"type":"veo","what":"A glowing cyan grid of spacetime sinks into a deep well around a dense planet; streams of starlight and dust spiral inward, everything pulled toward the center"},
+ {"id":"E2S09","t":[41.4,44.2],"type":"hyperframes","what":"Diagram: arrows pulling inward (gravity) vs arrows pushing outward (negative energy)"},
+ {"id":"E2S10","t":[44.2,48.4],"type":"veo","what":"A shimmering violet substance of light swirls into a spacetime grid and pushes the grid outward, bulging it open, exotic and otherworldly"},
+ {"id":"E2S11","t":[48.4,53.6],"type":"still","what":"1988 university office at night: a desk with hand-drawn diagrams of a wormhole held open, a chalkboard full of equations, a cup of coffee, an early desktop computer glowing, no people"},
+ {"id":"E2S12","t":[53.6,57.3],"type":"still","what":"A large radio telescope dish under a starry night sky, a single lit window in the control building, a stack of typed manuscript pages on a windowsill in the foreground"},
+ {"id":"E2S13","t":[57.3,68.8],"type":"hero","what":"A stable traversable wormhole held open by a glowing violet ring of exotic matter; the camera flies smoothly through the throat toward a different starfield on the far side"},
+ {"id":"E2S14","t":[68.8,73.3],"type":"veo","ref":"gate","what":"The Eclipse Gate stands open and perfectly steady on a frozen plain at dusk, its event surface rippling calmly, sci-fi style"},
+ {"id":"E2S15","t":[73.3,80.0],"type":"still","ref":"orb","what":"Lola's orb (glowing blue sphere, white waveform, three gold rings) hovers in darkness facing a faint swirling cloud of violet negative energy, contemplative"},
+ {"id":"E2S16","t":[80.0,85.8],"type":"veo","what":"Teaser: two polished parallel metal plates float very close together in a dark vacuum chamber, a faint violet glow trembling in the narrow gap between them"}
+],
+"ep3": [
+ {"id":"E3S01","t":[0.0,3.8],"type":"hero","what":"Hook: two polished parallel metal plates in a dark vacuum, a strange violet glow flickering in the narrow gap between them, sparks of light popping in and out"},
+ {"id":"E3S02","t":[3.8,9.8],"type":"still","ref":"orb","what":"Lola's orb (glowing blue sphere, white waveform across its center, three gold orbital rings) floats in a dark laboratory beside a vacuum chamber with a small window"},
+ {"id":"E3S03","t":[9.8,12.0],"type":"reuse","what":"Reuse Ep 2 shot E2S13 (wormhole held open by violet ring)"},
+ {"id":"E3S04","t":[12.0,17.0],"type":"hero","what":"Empty black space slowly revealed to be fizzing: countless tiny sparks and ripples of light flickering in and out of existence, quantum foam, macro"},
+ {"id":"E3S05","t":[17.0,22.8],"type":"veo","what":"Extreme macro of pairs of tiny glowing particles appearing and vanishing in darkness, faint cyan and violet waves rippling between them"},
+ {"id":"E3S06","t":[22.8,27.1],"type":"still","what":"1948 industrial physics laboratory, sepia: a workbench with brass instruments, a notebook of handwritten equations, a desk lamp, glass vacuum tubes, no people"},
+ {"id":"E3S07","t":[27.1,30.4],"type":"veo","what":"Two polished parallel metal plates slowly moving closer together inside a glass vacuum chamber, lit by cold cyan light"},
+ {"id":"E3S08","t":[30.4,36.1],"type":"hyperframes","what":"Diagram: waves between plates (only fitting waves) vs outside (all waves)"},
+ {"id":"E3S09","t":[36.1,43.3],"type":"hyperframes","what":"Diagram: energy meter, empty space = 0, between plates below zero, NEGATIVE ENERGY"},
+ {"id":"E3S10","t":[43.3,46.9],"type":"veo","what":"Glowing ripples of energy press in from all sides onto two parallel metal plates and squeeze them together, the gap between them dark"},
+ {"id":"E3S11","t":[46.9,50.4],"type":"still","what":"1997 physics lab: a torsion pendulum apparatus inside a vacuum enclosure, a small gold-coated lens near a flat plate, cables and an oscilloscope glowing green, no people"},
+ {"id":"E3S12","t":[50.4,56.6],"type":"veo","what":"Microscopic view: a tiny polished sphere on a cantilever slowly approaches a flat gold surface, a faint violet glow appearing in the gap, scientific macro"},
+ {"id":"E3S13","t":[56.6,63.8],"type":"veo","what":"Microscope view: a single rod-shaped bacterium drifts beside two metal plates whose gap is even narrower than the bacterium, sense of tiny scale"},
+ {"id":"E3S14","t":[63.8,71.1],"type":"hero","what":"Scale shot in space: the giant planet Jupiter looms in the background while a tiny glowing wormhole only one meter wide hovers in the foreground beside a spacesuited figure seen from behind"},
+ {"id":"E3S15","t":[71.1,73.6],"type":"veo","ref":"gate","what":"A large lever on a futuristic control console is pulled and the Eclipse Gate in the window behind powers up instantly in a flash of gold light, sci-fi style"},
+ {"id":"E3S16","t":[73.6,78.6],"type":"still","ref":"orb","what":"Lola's orb (glowing blue sphere, white waveform, three gold rings) hovers above two tiny glowing metal plates, looking at the faint violet spark between them, contemplative"},
+ {"id":"E3S17","t":[78.6,85.6],"type":"veo","ref":"gate","what":"Teaser: the Eclipse Gate floats in deep space surrounded by a constellation of glowing star points connected by thin gold lines, as if choosing a destination"}
+]
+}
